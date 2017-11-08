@@ -1,7 +1,7 @@
 {
   "name": "react-native-remote",
   "version": "0.1.0",
-  "description": "Compile and run react-native code on a remote machine.",
+  "description": "(Work in Progress) Compile and run react-native code on a remote machine.",
   "main": "src/index.js",
   "bin": {
     "react-native-remote": "./src/index.js"
