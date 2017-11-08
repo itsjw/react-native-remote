@@ -2,7 +2,7 @@
 
 const program = require('commander')
 
-const startServer = require('./startServer')
+const { startServer } = require('./startServer')
 const connectToServer = require('./connectToServer')
 const runIOS = require('./runIOS')
 const runAndroid = require('./runAndroid')
@@ -20,22 +20,15 @@ program
 
 if (program.start) {
   startServer(program.start)
-  process.exit()
-}
-
-if (program.connect) {
-  connectToServer(program.connect)
-  process.exit()
-}
-
-if (program.runIos) {
+} else if (program.connect) {
+  const socket = connectToServer(program.connect)
+  socket.on('close', () => process.exit())
+} else if (program.runIos) {
   runIOS()
   process.exit()
-}
-
-if (program.runAndroid) {
+} else if (program.runAndroid) {
   runAndroid()
   process.exit()
+} else {
+  program.outputHelp()
 }
-
-program.outputHelp()
