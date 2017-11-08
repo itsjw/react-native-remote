@@ -3,7 +3,7 @@ const net = require('net')
 const defaultPort = 9876
 const magicNumber = 424242
 
-var server
+let server
 
 function startServer (port) {
   server = net.createServer(handleNewClientConnection)
