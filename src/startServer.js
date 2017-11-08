@@ -15,6 +15,7 @@ function startServer (port) {
 function handleNewClientConnection (socket) {
   console.log(`New connection from ${socket.remoteAddress}`)
   socket.on('data', (data) => handleClientData(data, socket))
+  socket.on('close', () => handleClientDisconnection(socket))
   socket.write(String(magicNumber))
 }
 
@@ -26,6 +27,10 @@ function handleClientData (data, socket) {
 
   socket.destroy()
   console.log(`Unknown data received from ${socket.remoteAddress}, connection closed.`)
+}
+
+function handleClientDisconnection (socket) {
+  console.log(`Connection closed from ${socket.remoteAddress}`)
 }
 
 module.exports = { startServer, defaultPort, magicNumber }
