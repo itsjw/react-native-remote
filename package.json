@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/isair/react-native-remote#readme",
   "devDependencies": {
+    "flow-bin": "^0.59.0",
     "standard": "^10.0.3"
   },
   "dependencies": {

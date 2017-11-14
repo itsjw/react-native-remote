@@ -1,4 +1,4 @@
-// const fs = require('fs')
+/* @flow */
 
 function setRemote (host) {
   // fs.open('~/.react-native-remote/remote')

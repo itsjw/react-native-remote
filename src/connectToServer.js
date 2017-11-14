@@ -1,3 +1,5 @@
+/* @flow */
+
 const net = require('net')
 
 const { defaultPort, magicNumber } = require('./startServer')
